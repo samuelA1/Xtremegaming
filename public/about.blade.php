@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>Xtreme-Gaming-Blog</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -37,9 +38,6 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="about.blade.php">About</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="contact.blade.php">Contact</a>
             </li>
           </ul>
@@ -48,7 +46,7 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/about-bg.jpg')">
+    <header class="masthead" style="background-image: url('img/desktop-std (3).jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -109,7 +107,9 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="js/libs.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/clean-blog.min.js"></script>
 
   </body>
 

@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>Xtreme-Gaming-Blog</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -16,6 +17,7 @@
 
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
+    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     @yield('styles')
 
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -42,7 +44,7 @@
               <a class="nav-link" href="about.blade.php">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../../public/contact.blade.php">Contact</a>
+              <a class="nav-link" href="contact.blade.php">Contact</a>
             </li>
             @if (Route::has('login'))
               <div class="top-right links">
@@ -196,8 +198,9 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    {{--<script src="{{asset('js/app.js')}}"></script>--}}
-    <script src="{{asset('js/libs.js')}}"></script>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/clean-blog.min.js')}}"></script>
 
 
     @yield('scripts')

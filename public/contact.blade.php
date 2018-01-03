@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>Xtreme-Gaming-Blog</title>
 
     <link href="css/app.css" rel="stylesheet">
     <link href="css/libs.css" rel="stylesheet">
@@ -33,9 +34,6 @@
             <li class="nav-item">
               <a class="nav-link" href="about.blade.php">About</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../../public/contact.blade.php">Contact</a>
-            </li>
             </li>
           </ul>
         </div>
@@ -43,7 +41,7 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/contact-bg.jpg')">
+    <header class="masthead" style="background-image: url('img/horizon_zero_dawn.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -61,7 +59,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
+          <p style="font-size: medium; font-weight: bold">Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
           <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
           <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
           <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
@@ -97,7 +95,7 @@
             <br>
             <div id="success"></div>
             <div class="form-group">
-              <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+              <button style="font-size: medium" type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
             </div>
           </form>
         </div>
@@ -144,8 +142,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
 
     <!-- Contact Form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
@@ -153,6 +151,7 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/clean-blog.min.js"></script>
+
 
   </body>
 

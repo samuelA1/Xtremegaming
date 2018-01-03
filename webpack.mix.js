@@ -17,19 +17,17 @@ mix.js('resources/assets/js/app.js', 'public/js')
 mix.styles([
     'resources/assets/css/libs/clean-blog.css',
     'resources/assets/css/libs/bootstrap.min.css',
-    'resources/assets/css/libs/bootstrap-grid.min.css',
     'resources/assets/css/libs/font-awesome.min.css',
-    'resources/assets/css/libs/bootstrap-reboot.min.css',
-
-
 ], 'public/css/libs.css');
 
-mix.scripts([
-    'resources/assets/js/libs/jquery.min.js',
-    'resources/assets/js/libs/bootstrap.bundle.min.js',
-    'resources/assets/js/libs/bootstrap.min.js',
-    'resources/assets/js/libs/clean-blog.min.js',
-    'resources/assets/js/contact_me.js',
-    'resources/assets/js/libs/jqBootstrapValidation.js'
+mix.styles([
+    'resources/assets/css/libs/metisMenu.min.css',
+    'resources/assets/css/libs/sb-admin-2.css',
+    'resources/assets/css/libs/morris.css',
 
-], 'public/js/libs.js');
+
+
+], 'public/css/admin.css');
+
+
+
