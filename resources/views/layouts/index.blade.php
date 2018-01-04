@@ -50,7 +50,7 @@
               <div class="top-right links">
                 @auth
                       <li class="dropdown">
-                          <a  style="color: black; font-weight: 900; font-size: small; text-decoration: none" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                          <a  style="color: black; font-weight: 900; font-size: medium; text-decoration: none" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                               {{ Auth::user()->name }} <span class="caret"></span>
                           </a>
                           {{--<a style="color: black; font-weight: 900; font-size: small; text-decoration: none" href="">{{ Auth::user()->name }}</a>--}}
