@@ -123,10 +123,10 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">All Posts</a>
+                                <a href="{{url('admin/users')}}">All Posts</a>
                             </li>
                             <li>
-                                <a href="#">Create Post</a>
+                                <a href="{{url('admin/posts/create')}}">Create Post</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

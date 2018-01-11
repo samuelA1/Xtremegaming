@@ -10,6 +10,9 @@
     @if(Session::has('created'))
         <p class="bg-success">{{session('created')}}</p>
     @endif
+    @if(Session::has('deleted'))
+        <p class="bg-danger">{{session('deleted')}}</p>
+    @endif
     <table class="table">
         <thead>
           <tr>
@@ -34,6 +37,15 @@
             <td>{{$user->created_at->diffForHumans()}}</td>
             <td>{{$user->updated_at->diffForHumans()}}</td>
             <td><a href="{{url('admin/users/' . $user->id .'/edit')}}" role="button" class="btn btn-info" >Edit</a></td>
+            <td>
+                {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminUsersController@destroy', $user->id]]) !!}
+
+                <div class="form-group">
+                    {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
+                </div>
+                {!! Form::close() !!}
+            </td>
+
 
           </tr>
             @endforeach
