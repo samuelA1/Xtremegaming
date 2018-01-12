@@ -4,6 +4,7 @@
 @stop
 
 @section('content')
+    @include('includes.tinyeditor')
 
         {!! Form::open(['method'=>'POST', 'action'=> 'AdminPostsController@store', 'files'=>true]) !!}
 
@@ -32,6 +33,14 @@
         </div>
 
         {!! Form::close() !!}
+        <div class="row">
+
+
+            @include('includes.error')
+
+
+
+        </div>
 
 
 @stop

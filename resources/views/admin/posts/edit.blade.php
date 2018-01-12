@@ -4,6 +4,7 @@
 @stop
 
 @section('content')
+    @include('includes.tinyeditor')
 
 
     <div class="row">
@@ -48,6 +49,14 @@
                     </div>
                     {!! Form::close() !!}
                 </div>
+
+            </div>
+            <div class="row">
+
+
+                @include('includes.error')
+
+
 
             </div>
 

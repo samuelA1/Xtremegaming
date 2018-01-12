@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','AdminPostsController@welcome');
 
 Auth::routes();
 
@@ -27,5 +25,8 @@ Route::get('/admin', function () {
     return view('admin.index');
 });
 
+Route::get('/post/{id}', 'AdminPostsController@post');
+
 Route::resource('/admin/users', 'AdminUsersController');
 Route::resource('/admin/posts', 'AdminPostsController');
+Route::resource('/admin/comments', 'PostCommentsController');

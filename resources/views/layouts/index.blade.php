@@ -18,6 +18,8 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+
+
     @yield('styles')
 
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -47,13 +49,13 @@
               <a class="nav-link" href="contact.blade.php">Contact</a>
             </li>
             @if (Route::has('login'))
-              <div class="top-right links">
+              <div class=" links ">
                 @auth
-                      <li class="dropdown">
-                          <a  style="color: black; font-weight: 900; font-size: medium; text-decoration: none" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                      <li class="dropdown nav-link">
+                          <a  style="color: black; position: relative; bottom: 3px; font-weight: 900; font-size: medium; text-decoration: none; margin-right: 10px;" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                               {{ Auth::user()->name }} <span class="caret"></span>
                           </a>
-                          {{--<a style="color: black; font-weight: 900; font-size: small; text-decoration: none" href="">{{ Auth::user()->name }}</a>--}}
+
                           <ul class="dropdown-menu">
                               <li>
                                   <a style="font-size: small" href="{{ route('logout') }}"
@@ -71,8 +73,9 @@
 
 
                 @else
-                  <a style="color: black; font-weight: 900; font-size: small; text-decoration: none" href="{{ route('login') }}">Login</a>
-                  <a style="color: black; font-weight: 900; font-size: small; text-decoration: none"  href="{{ route('register') }}">Register</a>
+                  <li class="nav-item pull-left" ><a class="nav-link" style="color: red; position: relative; top: 3px;   font-weight: 900; font-size: medium; text-decoration: none; margin-right: 10px;" href="{{ route('login') }}">Login</a></li>
+
+                  <li class="nav-item pull-right" ><a class="nav-link"  style="color: red; position: relative; top: 3px; font-weight: 900; font-size: medium; text-decoration: none; margin-right: 10px;"  href="{{ route('register') }}">Register</a></li>
                 @endauth
               </div>
             @endif
@@ -88,7 +91,7 @@
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
               <h1>Xtreme Gaming Blog</h1>
-              <span class="subheading">A Blog Theme by Start Bootstrap</span>
+              <span class="subheading">A Gaming Blog For Patriotic Gamers</span>
             </div>
           </div>
         </div>
@@ -96,67 +99,34 @@
     </header>
 
     <!-- Main Content -->
+
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
+          @if($posts)
+            @foreach($posts as $post)
           <div class="post-preview">
-            <a href="post.blade.php">
+            <a href="{{'post/' . $post->slug}}">
               <h2 class="post-title">
-                Man must explore, and this is exploration at its greatest
+                {{$post->title}}
               </h2>
-              <h3 class="post-subtitle">
-                Problems look mighty small from 150 miles up
-              </h3>
-            </a>
-            <p class="post-meta">Posted by
-              <a href="#">Start Bootstrap</a>
-              on September 24, 2017</p>
-          </div>
-          <hr>
-          <div class="post-preview">
-            <a href="post.blade.php">
-              <h2 class="post-title">
-                I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-              </h2>
-            </a>
-            <p class="post-meta">Posted by
-              <a href="#">Start Bootstrap</a>
-              on September 18, 2017</p>
-          </div>
-          <hr>
-          <div class="post-preview">
-            <a href="post.blade.php">
-              <h2 class="post-title">
-                Science has not yet mastered prophecy
-              </h2>
-              <h3 class="post-subtitle">
-                We predict too much for the next year and yet far too little for the next ten.
-              </h3>
-            </a>
-            <p class="post-meta">Posted by
-              <a href="#">Start Bootstrap</a>
-              on August 24, 2017</p>
-          </div>
-          <hr>
-          <div class="post-preview">
-            <a href="post.blade.php">
-              <h2 class="post-title">
-                Failure is not an option
-              </h2>
-              <h3 class="post-subtitle">
-                Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-              </h3>
-            </a>
-            <p class="post-meta">Posted by
-              <a href="#">Start Bootstrap</a>
-              on July 8, 2017</p>
-          </div>
 
+            </a>
+            <img class="img-responsive" style=" max-height: 400px; margin: 30px 0;" src="{{asset('/images/' . ($post->image))}}" alt="">
+            <p class="post-meta">Posted by
+              <a href="#">{{$post->user->name}}</a>
+              {{$post->created_at->diffForHumans()}}</p>
+          </div>
+            <p>{!!$post->content !!}</p>
+          <hr>
+          @endforeach
+        @endif
           <!-- Pager -->
 
         </div>
       </div>
     </div>
+
 
     <hr>
 
@@ -168,7 +138,7 @@
             <ul class="list-inline text-center">
               <li class="list-inline-item">
                 <a href="#">
-                  <span class="fa-stack fa-lg">
+                  <span class="fa-stack">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
                   </span>
@@ -176,7 +146,7 @@
               </li>
               <li class="list-inline-item">
                 <a href="#">
-                  <span class="fa-stack fa-lg">
+                  <span class="fa-stack>
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
                   </span>
@@ -184,14 +154,14 @@
               </li>
               <li class="list-inline-item">
                 <a href="#">
-                  <span class="fa-stack fa-lg">
+                  <span class="fa-stack">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
               </li>
             </ul>
-            <p class="copyright text-muted">Copyright &copy; Your Website 2017</p>
+            <p class="copyright text-muted">Copyright &copy; XtremeGamingBlog 2017</p>
           </div>
         </div>
       </div>

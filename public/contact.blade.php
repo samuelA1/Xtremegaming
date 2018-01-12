@@ -34,7 +34,6 @@
             <li class="nav-item">
               <a class="nav-link" href="about.blade.php">About</a>
             </li>
-            </li>
           </ul>
         </div>
       </div>

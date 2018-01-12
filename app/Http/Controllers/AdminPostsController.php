@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
+use App\Http\Requests\PostRequest;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,13 +42,13 @@ class AdminPostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         //
         $user = Auth::user();
 
         $input = $request->all();
-        if ($file = $input['image']) {
+        if ($file = $request->file('image')) {
             $name = $file->getClientOriginalName();
             $file->move('images', $name);
             $input['image'] = $name;
@@ -94,7 +96,7 @@ class AdminPostsController extends Controller
         $user = Auth::user();
 
         $input = $request->all();
-        if ($file = $input['image']) {
+        if($file = $request->file('image')) {
             $name = $file->getClientOriginalName();
             $file->move('images', $name);
             $input['image'] = $name;
@@ -118,5 +120,18 @@ class AdminPostsController extends Controller
         $posts->delete();
         Session::flash('deleted-p', 'The post has been deleted');
         return redirect('admin/posts');
+    }
+
+    public function post($slug) {
+        $post = Post::findBySlugOrFail($slug);
+        $comments = $post->comment()->get();
+        return view('post', compact('post','comments'));
+    }
+
+    public function welcome()
+    {
+        //
+        $posts = Post::all();
+        return view('welcome', compact('posts'));
     }
 }

@@ -4,6 +4,7 @@
     Edit User
 @stop
 @section('content')
+
     <div class="row">
         <div style="margin-bottom: 30px;" class="col-sm-9">
             <img width="20%" class="img-responsive" src="{{asset('/images/'. ($users->image))}}" alt="">
@@ -65,8 +66,13 @@
                 </div>
 
              </div>
+            <div class="row">
+
+
+                @include('includes.error')
 
 
 
+            </div>
 
  @stop

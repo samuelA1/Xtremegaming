@@ -40,6 +40,7 @@
             <li class="nav-item">
               <a class="nav-link" href="contact.blade.php">Contact</a>
             </li>
+
           </ul>
         </div>
       </div>
