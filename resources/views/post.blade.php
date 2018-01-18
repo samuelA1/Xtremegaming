@@ -162,11 +162,49 @@
                     @foreach($comments as $comment)
 
                     <div class="media">
-                        <img height="64" class="mr-3" src="http://placehold.it/200x200" alt="Generic placeholder image">
+                        <img height="64" width="64" class="mr-3" src="{{asset('/images/'. ($comment->post->user->image))}}" alt="Generic placeholder image">
                         <div style="font-weight: 200" class="media-body">
                             <h5 class="mt-0">{{$comment->commenter}}</h5>
                             {{$comment->content}}
+                            {{--reply--}}
+                            @if($comment->reply)
+                                @foreach($comment->reply as $reply)
+                            <div class="media mt-3">
+                                <a class="pr-3" href="#">
+                                    <img height="64" width="64" src="{{asset('/images/'. ($reply->comment->post->user->image))}}" alt="Generic placeholder image">
+                                </a>
+                                <div class="media-body">
+                                    <h5 class="mt-0">{{$reply->commenter}}</h5>
+                                    {{$reply->content}}
+                                </div>
+                            </div>
+                                @endforeach
+                            @endif
                         </div>
+
+                    </div>
+                    <div class="edit-buttons" style="font-weight: lighter; font-size: medium;">
+                        <span class="comment-reply"><a  href="#">Reply</a></span>
+                        {{--Reply--}}
+                        <div class="comment-reply-container">
+                            {!! Form::open(['method'=>'POST', 'action'=> 'CommentRepliesController@store']) !!}
+
+
+                            <input type="hidden" name="comment_id" value="{{$comment->id}}">
+
+
+                            <div class="form-group">
+                                {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>3])!!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::submit('reply', ['class'=>'btn btn-primary']) !!}
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
+
+                        <span><a href="">Edit</a></span>
+                        <span><a href="">Delete</a></span>
                     </div>
 
                   @endforeach
@@ -198,14 +236,6 @@
                     </li>
                     <li class="list-inline-item">
                         <a href="#">
-                  <span class="fa-stack ">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                  </span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
                   <span class="fa-stack">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -213,7 +243,10 @@
                         </a>
                     </li>
                 </ul>
+                <br>
                 <p class="copyright text-muted">Copyright &copy; XtremeGamingBlog 2017</p>
+                <br>
+                <p class="copyright text-muted">Made By Samuel Essim</p>
             </div>
         </div>
     </div>
@@ -223,10 +256,17 @@
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/clean-blog.min.js')}}"></script>
-<script id="dsq-count-scr" src="//xgb-com.disqus.com/count.js" async></script>
+{{--<script id="dsq-count-scr" src="//xgb-com.disqus.com/count.js" async></script>--}}
 
 
 @yield('scripts')
+<script>
+    $('.comment-reply').click(function (event) {
+        event.preventDefault();
+       $(this).next().slideToggle();
+
+    });
+</script>
 
 </body>
 

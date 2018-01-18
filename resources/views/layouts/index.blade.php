@@ -146,14 +146,6 @@
               </li>
               <li class="list-inline-item">
                 <a href="#">
-                  <span class="fa-stack>
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
                   <span class="fa-stack">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -161,7 +153,10 @@
                 </a>
               </li>
             </ul>
+            <br>
             <p class="copyright text-muted">Copyright &copy; XtremeGamingBlog 2017</p>
+            <br>
+            <p class="copyright text-muted">Made By Samuel Essim</p>
           </div>
         </div>
       </div>

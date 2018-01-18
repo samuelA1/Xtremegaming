@@ -30,3 +30,4 @@ Route::get('/post/{id}', 'AdminPostsController@post');
 Route::resource('/admin/users', 'AdminUsersController');
 Route::resource('/admin/posts', 'AdminPostsController');
 Route::resource('/admin/comments', 'PostCommentsController');
+Route::resource('/admin/reply', 'CommentRepliesController');
