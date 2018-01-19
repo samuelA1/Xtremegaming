@@ -9,7 +9,7 @@ class Reply extends Model
     //
 
     protected $fillable = [
-        'commenter', 'comment_id', 'content', 'email'
+        'commenter', 'comment_id', 'content', 'email', 'is_active'
     ];
 
     public function user() {

@@ -133,31 +133,10 @@
 
 
                     <li>
-                        <a href=""><i class="fa fa-edit fa-fw"></i> Comments</a>
+                        <a href="{{url('admin/comments')}}"><i class="fa fa-edit fa-fw"></i> Comments</a>
                     </li>
 
-                    <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Category<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">All Categories</a>
-                            </li>
 
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-files-o fa-fw"></i> Media<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">All Media</a>
-                            </li>
-                            <li>
-                                <a href="#">Create Media</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->

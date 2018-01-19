@@ -21,13 +21,23 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', function () {
-    return view('admin.index');
+
+
+
+
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/admin',  'AdminUsersController@admin');
+    Route::resource('/admin/users', 'AdminUsersController');
+    Route::resource('/admin/posts', 'AdminPostsController');
+    Route::resource('/admin/comments', 'PostCommentsController');
+    Route::resource('/admin/reply', 'CommentRepliesController');
+
 });
 
-Route::get('/post/{id}', 'AdminPostsController@post');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/post/{id}', 'AdminPostsController@post');
 
-Route::resource('/admin/users', 'AdminUsersController');
-Route::resource('/admin/posts', 'AdminPostsController');
-Route::resource('/admin/comments', 'PostCommentsController');
-Route::resource('/admin/reply', 'CommentRepliesController');
+});
+
+
+

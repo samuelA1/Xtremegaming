@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Http\Requests\UsersEditRequest;
 use App\Http\Requests\UsersRequest;
+use App\Post;
+use App\Reply;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -136,5 +139,13 @@ class AdminUsersController extends Controller
         $users->delete();
         Session::flash('deleted', 'The user has been deleted');
         return redirect('admin/users');
+    }
+
+    public function admin() {
+        $users = User::all();
+        $posts = Post::all();
+        $comments = Comment::all();
+        $replies = Reply::all();
+        return view('admin.index', compact('users', 'posts', 'comments', 'replies'));
     }
 }

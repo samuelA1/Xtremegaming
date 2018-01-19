@@ -134,31 +134,11 @@
 
 
                     <li>
-                        <a href=""><i class="fa fa-edit fa-fw"></i> Comments</a>
+                        <a href="{{url('admin/comments')}}"><i class="fa fa-edit fa-fw"></i> Comments</a>
                     </li>
 
-                    <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Category<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">All Categories</a>
-                            </li>
 
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-files-o fa-fw"></i> Media<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">All Media</a>
-                            </li>
-                            <li>
-                                <a href="#">Create Media</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
+
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
@@ -183,7 +163,7 @@
                                 <i class="fa fa-user fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
+                                <div class="huge">{{count($users)}}</div>
                                 <div>Users</div>
                             </div>
                         </div>
@@ -205,7 +185,7 @@
                                 <i class="fa fa-bar-chart-o fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
+                                <div class="huge">{{count($posts)}}</div>
                                 <div>Posts</div>
                             </div>
                         </div>
@@ -227,7 +207,7 @@
                                 <i class="fa fa-comments  fa-fw fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">124</div>
+                                <div class="huge">{{count($comments)}}</div>
                                 <div>Comments</div>
                             </div>
                         </div>
@@ -249,8 +229,8 @@
                                 <i class="fa fa-support fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">13</div>
-                                <div>Images</div>
+                                <div class="huge">{{count($replies).' /'. count($comments)}}</div>
+                                <div>Replies per Comment</div>
                             </div>
                         </div>
                     </div>
