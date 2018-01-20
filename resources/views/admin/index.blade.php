@@ -69,7 +69,7 @@
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a href="{{url('admin/user/profile')}}"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
                     <li class="divider"></li>
                     <li>
@@ -93,17 +93,7 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                        <!-- /input-group -->
-                    </li>
+
                     <li>
                         <a href="{{url('admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
@@ -168,7 +158,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="{{url('admin/users')}}">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -190,7 +180,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="{{url('admin/posts')}}">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -212,7 +202,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="{{url('admin/comments')}}">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -234,13 +224,13 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
+                    {{--<a href="#">--}}
+                        {{--<div class="panel-footer">--}}
+                            {{--<span class="pull-left">View Details</span>--}}
+                            {{--<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>--}}
+                            {{--<div class="clearfix"></div>--}}
+                        {{--</div>--}}
+                    {{--</a>--}}
                 </div>
             </div>
         </div>
@@ -268,17 +258,17 @@
                                     </span>
                             </a>
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                <i class="fa fa-twitter fa-fw"></i> 3 New Users
                                 <span class="pull-right text-muted small"><em>12 minutes ago</em>
                                     </span>
                             </a>
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                <i class="fa fa-envelope fa-fw"></i> New Post
                                 <span class="pull-right text-muted small"><em>27 minutes ago</em>
                                     </span>
                             </a>
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-tasks fa-fw"></i> New Task
+                                <i class="fa fa-tasks fa-fw"></i> New Administrator
                                 <span class="pull-right text-muted small"><em>43 minutes ago</em>
                                     </span>
                             </a>
@@ -297,16 +287,7 @@
                                 <span class="pull-right text-muted small"><em>10:57 AM</em>
                                     </span>
                             </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
-                                <span class="pull-right text-muted small"><em>9:49 AM</em>
-                                    </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-money fa-fw"></i> Payment Received
-                                <span class="pull-right text-muted small"><em>Yesterday</em>
-                                    </span>
-                            </a>
+
                         </div>
                     </div>
                     <!-- /.panel-body -->

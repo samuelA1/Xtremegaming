@@ -148,4 +148,10 @@ class AdminUsersController extends Controller
         $replies = Reply::all();
         return view('admin.index', compact('users', 'posts', 'comments', 'replies'));
     }
+
+    public function profile() {
+
+        return view('admin.users.profile.index');
+
+    }
 }

@@ -5,13 +5,13 @@
  @stop
 @section('content')
     @if(Session::has('updated'))
-        <p class="bg-success">{{session('updated')}}</p>
+        <p class="alert alert-success">{{session('updated')}}</p>
         @endif
     @if(Session::has('created'))
-        <p class="bg-success">{{session('created')}}</p>
+        <p class="alert alert-success">{{session('created')}}</p>
     @endif
     @if(Session::has('deleted'))
-        <p class="bg-danger">{{session('deleted')}}</p>
+        <p class="alert alert-danger">{{session('deleted')}}</p>
     @endif
     <table class="table">
         <thead>

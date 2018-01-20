@@ -6,13 +6,13 @@
 
 @section('content')
     @if(Session::has('post-c'))
-        <p class="bg-success">{{session('post-c')}}</p>
+        <p class="alert alert-success">{{session('post-c')}}</p>
     @endif
     @if(Session::has('post-u'))
-        <p class="bg-success">{{session('post-u')}}</p>
+        <p class="alert alert-success">{{session('post-u')}}</p>
     @endif
     @if(Session::has('deleted-p'))
-        <p class="bg-danger">{{session('deleted-p')}}</p>
+        <p class="alert alert-danger">{{session('deleted-p')}}</p>
     @endif
     <table class="table">
         <thead>

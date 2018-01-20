@@ -8358,3 +8358,22 @@ a.dropdown-toggle::after {
   display: none;
 }
 
+@media (max-width: 1025px) {
+  .profile-edit {
+    width: 200px;
+  }
+}
+
+@media (min-width: 1026px) {
+  .profile-edit {
+    width: 800px;
+  }
+}
+
+@media (min-width: 1025px) {
+  #row {
+    top: 200px;
+    left: 700px;
+  }
+}
+

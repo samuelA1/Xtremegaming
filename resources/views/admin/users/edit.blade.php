@@ -29,14 +29,7 @@
                 {!! Form::label('role_id', 'Role:') !!}
                 {!! Form::select('role_id', [''=>'Choose Options'] + $roles , null, ['class'=>'form-control'])!!}
             </div>
-
-
-            <div class="form-group">
-                {!! Form::label('is_active', 'Status:') !!}
-                {!! Form::select('is_active', array(1 => 'Active', 0=> 'Not Active'), null, ['class'=>'form-control'])!!}
-             </div>
-
-
+    
             <div class="form-group">
                 {!! Form::label('image', 'Photo:') !!}
                 {!! Form::file('image', null, ['class'=>'form-control'])!!}

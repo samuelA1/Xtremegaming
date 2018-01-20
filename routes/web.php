@@ -31,11 +31,14 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('/admin/posts', 'AdminPostsController');
     Route::resource('/admin/comments', 'PostCommentsController');
     Route::resource('/admin/reply', 'CommentRepliesController');
+    Route::get('/admin/user/profile', 'AdminUsersController@profile');
 
 });
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/post/{id}', 'AdminPostsController@post');
+    Route::resource('/profile', 'UserProfileController');
+
 
 });
 
