@@ -35,7 +35,7 @@
                         @if($comment->is_active == 1)
 
 
-                            {!! Form::open(['method'=>'PATCH', 'action'=> ['PostCommentsController@update', $comment->id]]) !!}
+                            {!! Form::model($comment, ['method'=>'PATCH', 'action'=> ['PostCommentsController@update', $comment->id]]) !!}
 
 
                             <input type="hidden" name="is_active" value="0">
@@ -50,7 +50,7 @@
                         @else
 
 
-                            {!! Form::open(['method'=>'PATCH', 'action'=> ['PostCommentsController@update', $comment->id]]) !!}
+                            {!! Form::model($comment,['method'=>'PATCH', 'action'=> ['PostCommentsController@update', $comment->id]]) !!}
 
 
                             <input type="hidden" name="is_active" value="1">

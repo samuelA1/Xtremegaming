@@ -34,7 +34,7 @@
                         @if($reply->is_active == 1)
 
 
-                            {!! Form::open(['method'=>'PATCH', 'action'=> ['CommentRepliesController@update', $reply->id]]) !!}
+                            {!! Form::model($reply,['method'=>'PATCH', 'action'=> ['CommentRepliesController@update', $reply->id]]) !!}
 
 
                             <input type="hidden" name="is_active" value="0">
@@ -49,7 +49,7 @@
                         @else
 
 
-                            {!! Form::open(['method'=>'PATCH', 'action'=> ['CommentRepliesController@update', $reply->id]]) !!}
+                            {!! Form::model($reply,['method'=>'PATCH', 'action'=> ['CommentRepliesController@update', $reply->id]]) !!}
 
 
                             <input type="hidden" name="is_active" value="1">

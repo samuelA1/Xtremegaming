@@ -15,11 +15,11 @@ Route::get('/','AdminPostsController@welcome');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'AdminPostsController@welcome')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'AdminPostsController@welcome')->name('home');
 
 
 

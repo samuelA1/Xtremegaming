@@ -40,6 +40,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
+                @if(Auth::check())
+                    @if(Auth::user()->isAdmin())
+                        <li><a style="color: red; position: relative; top: 3px; font-weight: 900; font-size: medium; text-decoration: none; margin-right: 10px;" href="{{url('/admin')}}">Admin</a></li>
+                    @endif
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="../about.blade.php">About</a>
                 </li>
@@ -119,26 +124,6 @@
                     </div>
                     <p>{!!$post->content !!}</p>
                     <hr>
-            {{--<div id="disqus_thread"></div>--}}
-            {{--<script>--}}
-
-                {{--/**--}}
-                 {{--*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.--}}
-                 {{--*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/--}}
-                {{--/*--}}
-                {{--var disqus_config = function () {--}}
-                {{--this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable--}}
-                {{--this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable--}}
-                {{--};--}}
-                {{--*/--}}
-                {{--(function() { // DON'T EDIT BELOW THIS LINE--}}
-                    {{--var d = document, s = d.createElement('script');--}}
-                    {{--s.src = 'https://xgb-com.disqus.com/embed.js';--}}
-                    {{--s.setAttribute('data-timestamp', +new Date());--}}
-                    {{--(d.head || d.body).appendChild(s);--}}
-                {{--})();--}}
-            {{--</script>--}}
-            {{--<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>--}}
 
             {{--Comments--}}
             @if($comments)
@@ -167,7 +152,21 @@
                         <img height="64" width="64" class="mr-3" src="{{asset('/images/'. ($comment->post->user->image))}}" alt="Generic placeholder image">
                         <div style="font-weight: 200" class="media-body">
                             <h5 class="mt-0">{{$comment->commenter}}</h5>
-                            {{$comment->content}}
+                             <p class="comment-content">{{$comment->content}}</p>
+
+                             <div style="display: none" class="edit-content">
+                                 {!! Form::model($comment,['method'=>'PATCH', 'action'=> ['PostCommentsController@update', $comment->id]]) !!}
+
+
+                                 <div class="form-group ml-3">
+                                     {!! Form::textarea('content', null, ['class'=>'form-control','rows'=>3])!!}
+                                 </div>
+
+                                 <div class="form-group">
+                                     {!! Form::submit('update', ['class'=>'btn btn-primary']) !!}
+                                 </div>
+                                 {!! Form::close() !!}
+                             </div>
                             {{--reply--}}
                             @if($comment->reply)
                                 @foreach($comment->reply as $reply)
@@ -185,7 +184,7 @@
                         </div>
 
                     </div>
-                    <div class="edit-buttons" style="font-weight: lighter; font-size: medium;">
+                    <div class="edit-buttons" style="font-weight: lighter; font-size: medium; display: inline-flex">
                         <span class="comment-reply"><a  href="#">Reply</a></span>
                         {{--Reply--}}
                         <div class="comment-reply-container">
@@ -195,7 +194,7 @@
                             <input type="hidden" name="comment_id" value="{{$comment->id}}">
 
 
-                            <div class="form-group">
+                            <div class="form-group ml-3">
                                 {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>3])!!}
                             </div>
 
@@ -205,8 +204,22 @@
                             {!! Form::close() !!}
                         </div>
 
-                        <span><a href="">Edit</a></span>
-                        <span><a href="">Delete</a></span>
+                        <span class="comment-edit"><a href=""role="button">Edit</a></span>
+
+
+
+                            {!! Form::open(['method'=>'DELETE', 'action'=> ['PostCommentsController@destroy',$comment->id]]) !!}
+
+                            <div class="form-group ml-5">
+                                {!! Form::submit('DELETE', ['class'=>'btn btn-danger btn-sm']) !!}
+                            </div>
+
+
+                            {!! Form::close() !!}
+
+
+
+
                     </div>
 
                   @endforeach
@@ -258,7 +271,7 @@
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/clean-blog.min.js')}}"></script>
-{{--<script id="dsq-count-scr" src="//xgb-com.disqus.com/count.js" async></script>--}}
+
 
 
 @yield('scripts')
@@ -267,6 +280,12 @@
         event.preventDefault();
        $(this).next().slideToggle();
 
+    });
+
+    $('.comment-edit').click(function (event)  {
+        event.preventDefault();
+        $('.comment-content').toggle();
+        $('.edit-content').slideToggle();
     });
 </script>
 

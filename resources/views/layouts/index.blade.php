@@ -30,9 +30,7 @@
   </head>
 
   <body>
-
     <!-- Navigation -->
-    @yield('content')
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a style="font-size: x-large" class="navbar-brand" href="{{url('/')}}">XGamingBlog</a>
@@ -42,6 +40,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+            @if(Auth::check())
+              @if(Auth::user()->isAdmin())
+              <li><a style="color: red; position: relative; top: 3px; font-weight: 900; font-size: medium; text-decoration: none; margin-right: 10px;" href="{{url('/admin')}}">Admin</a></li>
+              @endif
+            @endif
             <li class="nav-item">
               <a class="nav-link" href="about.blade.php">About</a>
             </li>
@@ -78,7 +81,9 @@
                   <li class="nav-item pull-left" ><a class="nav-link" style="color: red; position: relative; top: 3px;   font-weight: 900; font-size: medium; text-decoration: none; margin-right: 10px;" href="{{ route('login') }}">Login</a></li>
 
                   <li class="nav-item pull-right" ><a class="nav-link"  style="color: red; position: relative; top: 3px; font-weight: 900; font-size: medium; text-decoration: none; margin-right: 10px;"  href="{{ route('register') }}">Register</a></li>
+
                 @endauth
+
               </div>
             @endif
           </ul>
@@ -103,6 +108,15 @@
     <!-- Main Content -->
 
     <div class="container">
+     @if( !Auth::check())
+        <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+          <strong>Login or Register !</strong> You must be logged in to read more.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
+
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           @if($posts)
@@ -119,11 +133,21 @@
               <a href="#">{{$post->user->name}}</a>
               {{$post->created_at->diffForHumans()}}</p>
           </div>
-            <p>{!!$post->content !!}</p>
+            <p>{!! str_limit($post->content, 700, '...') !!}</p>
+              <a class="btn btn-primary" href="{{'post/' . $post->slug}}" role="button">Read More</a>
           <hr>
           @endforeach
         @endif
           <!-- Pager -->
+            @if( !Auth::check())
+              <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+                <strong>Login !</strong> Login to leave a comment. <br>
+                <span><a class="alert-link btn btn-info" href="{{ route('login') }}">Login</a></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+             @endif
 
         </div>
       </div>
