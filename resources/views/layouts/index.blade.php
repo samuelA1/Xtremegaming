@@ -153,6 +153,14 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-4 " style="position: absolute; top: 900px">
+
+        {{$posts->render()}}
+
+      </div>
+    </div>
+
 
     <hr>
 
