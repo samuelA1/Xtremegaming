@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,13 +41,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('search')}}">
-                  <span  class="fa-stack">
-                    <i class="fa fa-search fa-stack-2x "></i>
-                  </span>
-                    </a>
-                </li>
                 @if(Auth::check())
                     @if(Auth::user()->isAdmin())
                         <li><a style="color: red; position: relative; top: 3px; font-weight: 900; font-size: medium; text-decoration: none; margin-right: 10px;" href="{{url('/admin')}}">Admin</a></li>
@@ -96,7 +90,7 @@
     </div>
 </nav>
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('../img/GRW_NW_1920x1080.jpg')">
+<header class="masthead" style="background-image: url('../img/horizon_zero_dawn.jpg')">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -110,139 +104,26 @@
     </div>
 </header>
 
-<!-- Main Content -->
-
 <div class="container">
+
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
+            <h1 class="text-center">Search</h1>
+            <br>
 
-                    <div class="post-preview">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="search" name="search" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Search by title">
+            </div>
+            <br>
 
-                            <h2 style="font-size: 36px" class="post-title">
-                                {{$post->title}}
-                            </h2>
-
-
-
-                        <img class="img-responsive" style=" max-height: 300px; margin: 30px 0;" src="{{asset('/images/' . ($post->image))}}" alt="">
-                        <p class="post-meta">Posted by
-                            <a href="#">{{$post->user->name}}</a>
-                            {{$post->created_at->diffForHumans()}}</p>
-                    </div>
-                    <p>{!!$post->content !!}</p>
-                    <hr>
-
-            {{--Comments--}}
-            @if($comments)
-                <span style="font-size: 18px; font-weight: bold">{{count($comments)}} comments </span>
-
-
-                {!! Form::open(['method'=>'POST', 'action'=> 'PostCommentsController@store']) !!}
-
-
-                <input type="hidden" name="post_id" value="{{$post->id}}">
-
-
-                <div class="form-group">
-                    {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>3])!!}
-                </div>
-                <div class="form-group">
-                    {!! Form::submit('Post', ['class'=>'btn btn-primary']) !!}
-                </div>
-                {!! Form::close() !!}
-                <span style="color: #005cbf; font-size: 15px; font-weight: bold;">NEWEST</span>
-            <hr>
-
-                    @foreach($comments as $comment)
-
-                    <div class="media">
-                        <img height="64" width="64" class="mr-3" src="{{asset('/images/'. ($comment->post->user->image))}}" alt="Generic placeholder image">
-                        <div style="font-weight: 200" class="media-body">
-                            <h5 class="mt-0">{{$comment->commenter}}</h5>
-                             <p class="comment-content">{{$comment->content}}</p>
-
-                             <div style="display: none" class="edit-content">
-                                 {!! Form::model($comment,['method'=>'PATCH', 'action'=> ['PostCommentsController@update', $comment->id]]) !!}
-
-
-                                 <div class="form-group ml-3">
-                                     {!! Form::textarea('content', null, ['class'=>'form-control','rows'=>3])!!}
-                                 </div>
-
-                                 <div class="form-group">
-                                     {!! Form::submit('update', ['class'=>'btn btn-primary']) !!}
-                                 </div>
-                                 {!! Form::close() !!}
-                             </div>
-                            {{--reply--}}
-                            @if($comment->reply)
-                                @foreach($comment->reply as $reply)
-                            <div class="media mt-3">
-                                <a class="pr-3" href="#">
-                                    <img height="64" width="64" src="{{asset('/images/'. ($reply->comment->post->user->image))}}" alt="Generic placeholder image">
-                                </a>
-                                <div class="media-body">
-                                    <h5 class="mt-0">{{$reply->commenter}}</h5>
-                                    {{$reply->content}}
-                                </div>
-                            </div>
-                                @endforeach
-                            @endif
-                        </div>
-
-                    </div>
-                    <div class="edit-buttons" style="font-weight: lighter; font-size: medium; display: inline-flex">
-                        <span class="comment-reply"><a  href="#">Reply</a></span>
-                        {{--Reply--}}
-                        <div class="comment-reply-container">
-                            {!! Form::open(['method'=>'POST', 'action'=> 'CommentRepliesController@store']) !!}
-
-
-                            <input type="hidden" name="comment_id" value="{{$comment->id}}">
-
-
-                            <div class="form-group ml-3">
-                                {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>3])!!}
-                            </div>
-
-                            <div class="form-group">
-                                {!! Form::submit('reply', ['class'=>'btn btn-primary']) !!}
-                            </div>
-                            {!! Form::close() !!}
-                        </div>
-
-                        <span class="comment-edit"><a href=""role="button">Edit</a></span>
-
-
-
-                            {!! Form::open(['method'=>'DELETE', 'action'=> ['PostCommentsController@destroy',$comment->id]]) !!}
-
-                            <div class="form-group ml-5">
-                                {!! Form::submit('DELETE', ['class'=>'btn btn-danger btn-sm']) !!}
-                            </div>
-
-
-                            {!! Form::close() !!}
-
-
-
-
-                    </div>
-
-                  @endforeach
-               @endif
-
-
-            <!-- Pager -->
+            <div class="is"></div>
 
         </div>
     </div>
 </div>
+<br>
 
 
-<hr>
-
-<!-- Footer -->
 <footer>
     <div id="contact" class="container">
         <div class="row">
@@ -282,26 +163,42 @@
     </div>
 </footer>
 
-<!-- Bootstrap core JavaScript -->
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/clean-blog.min.js')}}"></script>
 
+<script type="text/javascript">
+
+    $('#search').on('keyup',function(){
+
+        $value=$(this).val();
+
+        $.ajax({
+
+            type : 'get',
+
+            url : '{{URL::to('searched')}}',
+
+            data:{'search':$value},
+
+            success:function(data){
+
+                $('.is').html(data);
+
+            }
+
+        });
 
 
-@yield('scripts')
-<script>
-    $('.comment-reply').click(function (event) {
-        event.preventDefault();
-       $(this).next().slideToggle();
 
-    });
+    })
 
-    $('.comment-edit').click(function (event)  {
-        event.preventDefault();
-        $('.comment-content').toggle();
-        $('.edit-content').slideToggle();
-    });
+</script>
+
+<script type="text/javascript">
+
+    $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+
 </script>
 
 </body>

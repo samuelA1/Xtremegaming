@@ -8377,3 +8377,23 @@ a.dropdown-toggle::after {
   }
 }
 
+.side li a {
+  text-decoration: none;
+}
+
+@media (max-width: 1023px) {
+  #side-info {
+    display: none;
+  }
+}
+
+.fa-search {
+  color: white;
+}
+
+@media (max-width: 1023px) {
+  .fa-search {
+    color: black;
+  }
+}
+

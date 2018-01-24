@@ -53,12 +53,10 @@
         </tbody>
       </table>
 
-    <div class="row">
-        <div class="col-sm-6 col-sm-offset-4 " style="position: absolute; top: 900px">
+    <div class=" text-center " style="position:relative; top: 400px">
 
-            {{$users->render()}}
+        {{$users->render()}}
 
-        </div>
     </div>
 
 @stop

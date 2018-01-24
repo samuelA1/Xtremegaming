@@ -40,16 +40,23 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('search')}}">
+                  <span  class="fa-stack">
+                    <i class="fa fa-search fa-stack-2x"></i>
+                  </span>
+              </a>
+            </li>
             @if(Auth::check())
               @if(Auth::user()->isAdmin())
               <li><a style="color: red; position: relative; top: 3px; font-weight: 900; font-size: medium; text-decoration: none; margin-right: 10px;" href="{{url('/admin')}}">Admin</a></li>
               @endif
             @endif
             <li class="nav-item">
-              <a class="nav-link" href="about.blade.php">About</a>
+              <a class="nav-link" href="{{url('about')}}">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.blade.php">Contact</a>
+              <a class="nav-link" href="#contact">Contact</a>
             </li>
             @if (Route::has('login'))
               <div class=" links ">
@@ -150,23 +157,46 @@
              @endif
 
         </div>
+        <div id="side-info" class="col-lg-3 col-md-2 card" style="height: 52rem; position: relative; top: 92px; font-weight: normal; font-size: medium;">
+          <h4 class="text-center">Top Games and ratings</h4>
+          <ul class="side" style="list-style: none;">
+            <li ><a href="{{url('post/sleeping-dogs')}}">Sleeping Dogs</a><span style="margin-left: 28px;" class="badge badge-danger">4</span></li>
+            <br>
+            <li><a href="">hey</a></li>
+            <br>
+            <li><a href="">hey</a></li>
+            <br>
+            <li><a href="">hey</a></li>
+            <br>
+            <li><a href="">hey</a></li>
+            <br>
+            <li><a href="">hey</a></li>
+            <br>
+            <li><a href="">hey</a></li>
+            <br>
+            <li><a href="">hey</a></li>
+            <br>
+            <li><a href="">hey</a></li>
+            <br>
+            <li><a href="">hey</a></li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-sm-6 col-sm-offset-4 " style="position: absolute; top: 900px">
+      <div class=" pagination justify-content-center" style="position: relative; top: 24px">
 
         {{$posts->render()}}
 
       </div>
-    </div>
+    <br>
 
 
     <hr>
 
     <!-- Footer -->
     <footer>
-      <div class="container">
+      <div id="contact" class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <ul class="list-inline text-center">
@@ -183,6 +213,14 @@
                   <span class="fa-stack">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="mailto:sessim37@gmail.com">
+                  <span class="fa-stack">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-at fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
               </li>
