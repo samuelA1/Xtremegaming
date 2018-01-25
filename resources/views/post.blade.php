@@ -159,9 +159,9 @@
                         <img height="64" width="64" class="mr-3" src="{{asset('/images/'. ($comment->post->user->image))}}" alt="Generic placeholder image">
                         <div style="font-weight: 200" class="media-body">
                             <h5 class="mt-0">{{$comment->commenter}}</h5>
-                             <p class="comment-content">{{$comment->content}}</p>
+                             <p id="{{$comment->id}}" class="comment-content">{{$comment->content}}</p>
 
-                             <div style="display: none" class="edit-content">
+                             <div id="{{$comment->id}}" style="display: none" class="edit-content">
                                  {!! Form::model($comment,['method'=>'PATCH', 'action'=> ['PostCommentsController@update', $comment->id]]) !!}
 
 
@@ -211,6 +211,8 @@
                             {!! Form::close() !!}
                         </div>
 
+                        @if(Auth::user()->name == $comment->commenter)
+
                         <span class="comment-edit"><a href=""role="button">Edit</a></span>
 
 
@@ -223,6 +225,7 @@
 
 
                             {!! Form::close() !!}
+                        @endif
 
 
 
@@ -274,6 +277,8 @@
                     </li>
                 </ul>
                 <br>
+                <p class="copyright text-muted">All references from wikipedia.org</p>
+                <br>
                 <p class="copyright text-muted">Copyright &copy; XtremeGamingBlog 2017</p>
                 <br>
                 <p class="copyright text-muted">Made By Samuel Essim</p>
@@ -297,11 +302,24 @@
 
     });
 
-    $('.comment-edit').click(function (event)  {
+    $( document ).on( "click", function( event ) {
         event.preventDefault();
-        $('.comment-content').toggle();
-        $('.edit-content').slideToggle();
+        $( event.target ).closest( '.comment-content' ).toggle(  );
     });
+
+
+
+    // $('.comment-edit').click(function (event)  {
+    //     event.preventDefault();
+    //
+    //     // const $id = $('.comment-content').attr('id');
+    //         $('.comment-content'). closest(). toggle();
+    //         // $('.edit-content'). first().slideToggle();
+    //
+    //
+    //
+    //
+    // });
 </script>
 
 </body>

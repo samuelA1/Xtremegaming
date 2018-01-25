@@ -24,6 +24,7 @@
             <th>Content</th>
             <th>Created</th>
             <th>Updated</th>
+
         </tr>
         </thead>
         <tbody>
@@ -35,7 +36,7 @@
                     <td><img height="40" src="{{asset('/images/'. ($post->image))}}" alt="{{$post->title}}"></td>
                     <td>{{$post->user->name}}</td>
                     <td>{{$post->title}}</td>
-                    <td>{!! str_limit($post->content, 500, '...') !!}</td>
+                    <td>{!! $post->content !!}</td>
                     <td>{{$post->created_at->diffForHumans()}}</td>
                     <td>{{$post->updated_at->diffForHumans()}}</td>
                     <td><a href="{{url('post/'. $post->slug)}}">View Post</a></td>

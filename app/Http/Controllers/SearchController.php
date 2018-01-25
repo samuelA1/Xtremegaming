@@ -53,9 +53,7 @@ class SearchController extends Controller
 
                         '<h5 class="card-title"> ' .$product->title . '</h5>'.
 
-                        '<p class="card-text">'  .$product->content. '</p>'.
-
-                        '<a class="btn btn-primary" href="'.'post/'.$product->slug.'"'.'>' .'Read more'. '</a>'.
+                        '<a class="btn btn-primary" href="'.'post/'.$product->slug.'"'.'>' .'Read'. '</a>'.
                          '</div>'.
                 '</div>'.
             '</div>';

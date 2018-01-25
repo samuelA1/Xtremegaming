@@ -131,7 +131,7 @@ class AdminPostsController extends Controller
     public function welcome()
     {
         //
-        $posts = Post::paginate(4);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(4);
         return view('welcome', compact('posts'));
     }
 }

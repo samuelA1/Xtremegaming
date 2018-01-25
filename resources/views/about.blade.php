@@ -107,6 +107,8 @@
                         </a>
                     </li>
                 </ul>
+                <br>
+
                 <p class="copyright text-muted">Copyright &copy; XtremeGamingBlog 2017</p>
                 <br>
                 <p class="copyright text-muted">Made By Samuel Essim</p>

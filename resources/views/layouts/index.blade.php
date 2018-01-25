@@ -140,8 +140,11 @@
               <a href="#">{{$post->user->name}}</a>
               {{$post->created_at->diffForHumans()}}</p>
           </div>
-            <p>{!! str_limit($post->content, 700, '...') !!}</p>
-              <a class="btn btn-primary" href="{{'post/' . $post->slug}}" role="button">Read More</a>
+
+            <p>{!! str_limit($post->content, 4000, '...') !!}</p>
+
+              <a style="display: inline-block; text-decoration: none" class="btn btn-primary d-flex  justify-content-center" href="{{'post/' . $post->slug}}" role="button">Read More</a>
+
           <hr>
           @endforeach
         @endif
@@ -157,28 +160,28 @@
              @endif
 
         </div>
-        <div id="side-info" class="col-lg-3 col-md-2 card" style="height: 52rem; position: relative; top: 92px; font-weight: normal; font-size: medium;">
-          <h4 class="text-center">Top Games and ratings</h4>
+        <div id="side-info" class="col-lg-4 col-md-2 card" style="height: 520px; position: absolute; right: 20px; width: 20%; font-weight: normal; font-size: medium;">
+          <h4 class="text-center">Top Games and ratings from <strong>Gamespot.com</strong></h4>
           <ul class="side" style="list-style: none;">
-            <li ><a href="{{url('post/sleeping-dogs')}}">Sleeping Dogs</a><span style="margin-left: 28px;" class="badge badge-danger">4</span></li>
+            <li ><a href="{{url('post/wolfenstein-ii-the-new-colossus')}}">Wolfenstein II: The New Colossus</a><span style="margin-left: 28px;" class="badge badge-danger">9</span></li>
             <br>
-            <li><a href="">hey</a></li>
+            <li ><a href="{{url('post/madden-nfl-18')}}">Madden NFL 18</a><span style="margin-left: 28px;" class="badge badge-danger">9</span></li>
             <br>
-            <li><a href="">hey</a></li>
+            <li ><a href="{{url('post/call-of-duty-wwii')}}">Call of Duty: WWII</a><span style="margin-left: 28px;" class="badge badge-danger">9</span></li>
             <br>
-            <li><a href="">hey</a></li>
+            <li ><a href="{{url('post/f1-2017')}}">F1 2017</a><span style="margin-left: 28px;" class="badge badge-danger">9</span></li>
             <br>
-            <li><a href="">hey</a></li>
+            <li ><a href="{{url('post/dishonored-death-of-the-outsider')}}">Dishonored: Death of the Outsider</a><span style="margin-left: 28px;" class="badge badge-danger">8</span></li>
             <br>
-            <li><a href="">hey</a></li>
+            <li ><a href="{{url('post/the-evil-within-2')}}">The Evil Within 2</a><span style="margin-left: 28px;" class="badge badge-danger">8</span></li>
             <br>
-            <li><a href="">hey</a></li>
+            <li ><a href="{{url('post/destiny-2')}}">Destiny 2</a><span style="margin-left: 28px;" class="badge badge-danger">8</span></li>
             <br>
-            <li><a href="">hey</a></li>
+            <li ><a href="{{url('post/nba-2k18')}}">NBA 2K18</a><span style="margin-left: 28px;" class="badge badge-danger">8</span></li>
             <br>
-            <li><a href="">hey</a></li>
+            <li ><a href="{{url('post/assassin-s-creed-origins')}}">Assassin's Creed Origins</a><span style="margin-left: 28px;" class="badge badge-danger">7</span></li>
             <br>
-            <li><a href="">hey</a></li>
+            <li ><a href="{{url('post/fifa-18')}}">FIFA 18</a><span style="margin-left: 28px;" class="badge badge-danger">7</span></li>
           </ul>
         </div>
       </div>
@@ -225,6 +228,8 @@
                 </a>
               </li>
             </ul>
+            <br>
+            <p class="copyright text-muted">All references from wikipedia.org</p>
             <br>
             <p class="copyright text-muted">Copyright &copy; XtremeGamingBlog 2017</p>
             <br>
