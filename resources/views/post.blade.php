@@ -302,24 +302,7 @@
 
     });
 
-    $( document ).on( "click", function( event ) {
-        event.preventDefault();
-        $( event.target ).closest( '.comment-content' ).toggle(  );
-    });
-
-
-
-    // $('.comment-edit').click(function (event)  {
-    //     event.preventDefault();
-    //
-    //     // const $id = $('.comment-content').attr('id');
-    //         $('.comment-content'). closest(). toggle();
-    //         // $('.edit-content'). first().slideToggle();
-    //
-    //
-    //
-    //
-    // });
+    
 </script>
 
 </body>
