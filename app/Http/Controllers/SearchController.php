@@ -46,7 +46,7 @@ class SearchController extends Controller
                 foreach ($products as $key => $product) {
 
                     $output.=
-                 '<div class="col-sm-6 mb-5">'.
+                 '<div class="mb-5 col-lg">'.
                     '<div class="card">'.
                         '<div class="card-body">'.
 
@@ -55,7 +55,7 @@ class SearchController extends Controller
 
                         '<a class="btn btn-primary" href="'.'post/'.$product->slug.'"'.'>' .'Read'. '</a>'.
                          '</div>'.
-                '</div>'.
+                   '</div>'.
             '</div>';
 
 
